@@ -1,10 +1,8 @@
 // Node library packages
 const fs = require("fs");
 const inquirer = require("inquirer");
-const dotenv = require("dotenv");
 
-const template
-
+// Array of questions
 inquirer.prompt([
     {
         type: "input",
@@ -29,7 +27,8 @@ inquirer.prompt([
     {
         type: "input",
         message: "What are the steps required to install your project?",
-        name: "projectInstallation"
+        name: "projectInstallation",
+        default: "npm i"
     },
     {
         type: "input",
@@ -49,9 +48,46 @@ inquirer.prompt([
 
 ]).then(function(response) {
 
+    const template =
+
+    `# ${response.projectName}\n\n` +
+    `![READle-ME-this](https://img.shields.io/github/last-commit/${response.userName}/${response.projectName})\n\n` +
+    `## Description\n\n` +
+    
+    `${response.shortDescrip}\n\n` +
+    
+    `## Table of Contents\n\n` +
+    
+    `* [Installation](#installation)\n\n` +
+    `* [Usage](#usage)\n\n` +
+    `* [Credits](#credits)\n\n` +
+    `* [License](#license)\n\n` +
+    
+    `## Installation\n\n` +
+    
+    `${response.projectInstallation}\n\n` +
+    
+    `## Usage\n\n` +
+    
+    `${response.projectUse}\n\n` +
+    
+    `## Credits\n\n` +
+    
+    `${response.projectCredits}\n\n` +
+    
+    `## License\n\n` +
+    
+    `${response.projectLicense}\n\n` +
+    
+    `## Tests\n\n` +
+    
+    `${response.projectTests}\n\n` +
+    
+    `## Questions\n\n`
+    
     console.log("inquirer Success!: ", response);
 
-    fs.writeFile("README.md", response, function(err) {
+    fs.writeFile("README.md", template, function(err) {
 
         if (err) {
             return console.log(err);
@@ -62,10 +98,3 @@ inquirer.prompt([
     });
  
 });
-
-
-// function init() {
-
-// }
-
-// init();
