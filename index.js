@@ -2,6 +2,17 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+// Map of license choices
+
+const licenseChoices = new Map([
+    ["MIT", "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"],
+    ["Apache 2.0", "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"],
+    ["Boost", "[![License](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)](https://www.boost.org/LICENSE_1_0.txt)"],
+    ["BSD 3", "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)"],
+    ["BSD 2", "[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)"],
+    ["Mozilla", "[![License: MPL 2.0](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)"]
+    ]);
+
 // Array of questions
 inquirer.prompt([
     {
@@ -16,24 +27,31 @@ inquirer.prompt([
     },
     {
         type: "input",
-        message: "What is your project Repository name?",
+        message: "What is your project repository name?",
         name: "projectName"
     },
     {
         type: "input",
-        message: "Please write a short description of your project.",
+        message: "Write a short description of your project.",
         name: "shortDescrip"
     },
     {
         type: "input",
-        message: "What are the steps required to install your project?",
+        message: "What command(s) need to be run install your project dependencies?",
         name: "projectInstallation",
         default: "npm i"
     },
     {
         type: "input",
-        message: "Provide instructions and examples for use.",
-        name: "projectUse"
+        message: "What command(s) can to be runfor testing?",
+        name: "projectTest",
+        default: "no test currently implimented"
+    },
+    {
+        type: "input",
+        message: "Are there any special requirements for using this repo?.",
+        name: "projectUse",
+        default: "There are no special requirements for using this repo"
     },
     {
         type: "input",
@@ -41,9 +59,10 @@ inquirer.prompt([
         name: "projectCredits"
     },
     {
-        type: "input",
+        type: "list",
         message: "What software license do you want to use?.",
-        name: "projectLicense"
+        name: "projectLicense",
+        choices: [...licenseChoices.keys()]
     },
 
 ]).then(function(response) {

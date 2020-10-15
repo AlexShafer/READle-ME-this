@@ -4,7 +4,7 @@
 
 ## Description
 
-This is a javascript app that asks the user for some information about their project then organizes and writes it to README.md.
+A Command Line Application to make READMEs easily
 
 ## Table of Contents
 
@@ -18,19 +18,19 @@ This is a javascript app that asks the user for some information about their pro
 
 ## Installation
 
-npm init, npm install fs, npm install inquirer
+npm i
 
 ## Usage
 
-Initialize npm, then install the fs and inquerer library packages. then run the command node index and accurately answer the folling questions to generate your README.md.
+There are no special requirements for using this repo
 
 ## Credits
 
-AlexShafer
+Alex Shafer
 
 ## License
 
-placeholder
+MIT
 
 ## Tests
 
