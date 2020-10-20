@@ -74,6 +74,8 @@ inquirer.prompt([
     `## Description\n\n` +
     
     `${response.shortDescrip}\n\n` +
+
+    `## Demo\n\n` +
     
     `## Table of Contents\n\n` +
     
@@ -106,7 +108,7 @@ inquirer.prompt([
     
     console.log("inquirer Success!: ", response);
 
-    fs.writeFile("README.md", template, function(err) {
+    fs.writeFile("NEW_README.md", template, function(err) {
 
         if (err) {
             return console.log(err);
