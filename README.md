@@ -6,6 +6,12 @@
 
 A Command Line Application to make READMEs easily
 
+## Demo
+
+![Demo1](demo1.gif)
+
+![Demo2](demo2.gif)
+
 ## Table of Contents
 
 * [Installation](#installation)
@@ -18,7 +24,15 @@ A Command Line Application to make READMEs easily
 
 ## Installation
 
+First clone this repository, then install dependencies with the command:
+
 npm i
+
+To start the application enter the command:
+
+node index.js
+
+Answer the prompts and a README.md will be generated in the current directory.
 
 ## Usage
 
